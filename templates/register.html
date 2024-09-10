@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Modern Registration Form</title>
+      <script src="https://cdn.tailwindcss.com"></script>
+      <style>
+            /* General Styles */
+
+            body {
+                  font-family: 'Inter', sans-serif;
+                  background-color: #f9f9f9;
+            }
+
+            .gradient-input {
+                  background: #e7e7e7;
+                  color: #374151;
+                  border: none;
+                  transition: background-color 0.3s ease;
+            }
+
+            .gradient-input:focus {
+                  outline: none;
+                  box-shadow: none;
+                  background: #ffffff;
+            }
+
+            /* Custom File Upload Styling */
+
+            .custom-file-upload {
+                  background-color: #f1f5f9;
+                  border: 2px dashed #d1d5db;
+                  padding: 12px;
+                  text-align: center;
+                  cursor: pointer;
+                  transition: background-color 0.2s ease;
+                  border-radius: 8px;
+            }
+
+            .custom-file-upload:hover {
+                  background-color: #e5e7eb;
+            }
+
+            .custom-file-upload input {
+                  display: none;
+            }
+
+            .file-upload-text {
+                  color: #374151;
+            }
+
+            /* Button Styling */
+
+            .gradient-button {
+                  background: linear-gradient(to right, #34d399, #059669);
+                  color: white;
+                  border-radius: 8px;
+                  transition: background 0.3s ease;
+            }
+
+            .gradient-button:hover {
+                  background: linear-gradient(to right, #059669, #065f46);
+            }
+
+            .nav-logo,
+            .footer-logo {
+                  max-width: 40px;
+                  max-height: 40px;
+            }
+
+            @media (max-width: 768px) {
+                  footer {
+                        display: none;
+                  }
+            }
+
+            .alert-container {
+                  margin-bottom: 20px;
+            }
+
+            .alert {
+                  padding: 15px;
+                  border-radius: 4px;
+                  margin-bottom: 20px;
+            }
+
+            .alert-success {
+                  background-color: #d4edda;
+                  color: #155724;
+            }
+
+            .alert-danger {
+                  background-color: #f8d7da;
+                  color: #721c24;
+            }
+      </style>
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body class="bg-gray-50">
+
+      <!-- Navbar -->
+      <nav class="bg-green-700 p-4">
+            <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+                  <div class="flex items-center mb-4 md:mb-0">
+                        <span class="text-xl text-white font-bold">Faculty Of Islamic Sciences Ltd</span>
+                  </div>
+            </div>
+      </nav>
+
+      <!-- Registration Form Section -->
+      <div class="flex flex-col md:flex-row h-screen">
+            <!-- Image Section -->
+            <div class="w-full md:w-1/2 bg-cover bg-center"
+                  style="background-image: url('https://e.top4top.io/p_3175mbbl61.jpg');"></div>
+
+            <!-- Form Section -->
+            <div class="w-full md:w-1/2 flex items-center justify-center bg-white p-4 md:p-8">
+                  <div class="w-full max-w-2xl">
+                        <h2 class="text-2xl font-bold text-green-800 mb-6 text-center">Registration Form</h2>
+                        {% with messages = get_flashed_messages(with_categories=True) %} {% if messages %}
+                        <div class="alert-container">
+                              {% for category, message in messages %}
+                              <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                                    {{ message }}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                    </button>
+                              </div>
+                              {% endfor %}
+                        </div>
+                        {% endif %} {% endwith %}
+                        <form action="#" method="POST" enctype="multipart/form-data" class="space-y-6">
+                              <!-- Full Name and First Name in Arabic -->
+                              <div class="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
+                                    <div class="w-full md:w-1/2">
+                                          <label for="english-name" class="block font-bold text-gray-700 mb-2">Full Name
+                                                (English) *</label>
+                                          <input type="text" id="english-name" name="english_name" required
+                                                class="w-full gradient-input p-3 rounded-lg focus:ring-0 placeholder-gray-100"
+                                                placeholder="John Doe">
+                                    </div>
+                                    <!-- Full
+								Name (Arabic) * -->
+                                    <div class="w-full md:w-1/2">
+                                          <label for="arabic-name" class="block font-bold text-gray-700 mb-2">Full Name
+                                                (Arabic) *</label>
+                                          <input type="text" id="arabic-name" name="arabic_name" required
+                                                class="w-full gradient-input p-3 rounded-lg focus:ring-0 placeholder-gray-100"
+                                                placeholder="جون دو">
+                                    </div>
+                              </div>
+
+
+                              <!-- Date of Birth -->
+                              <div>
+                                    <label for="dob" class="block font-bold text-gray-700 mb-2">Date of Birth *</label>
+                                    <input type="date" id="dob" name="dob" required
+                                          class="w-full gradient-input p-3 rounded-lg focus:ring-0 placeholder-gray-100">
+                              </div>
+
+                              <!-- Nationality -->
+                              <div>
+                                    <label for="nationality" class="block font-bold text-gray-700 mb-2">Nationality
+                                          *</label>
+                                    <input type="text" id="nationality" name="nationality" required
+                                          class="w-full gradient-input p-3 rounded-lg focus:ring-0 placeholder-gray-100"
+                                          placeholder="Your Nationality">
+                              </div>
+
+                              <!-- Phone Number -->
+                              <div>
+                                    <label for="phone" class="block font-bold text-gray-700 mb-2">Phone Number *</label>
+                                    <div class="flex">
+                                          <span class="bg-gray-200 p-3 rounded-l-lg">+1</span>
+                                          <input type="tel" id="phone" name="phone" required
+                                                class="w-full gradient-input p-3 rounded-r-lg focus:ring-0 placeholder-gray-100"
+                                                placeholder="123-456-7890">
+                                    </div>
+                              </div>
+
+                              <!-- Email -->
+                              <div>
+                                    <label for="email" class="block font-bold text-gray-700 mb-2">Email *</label>
+                                    <input type="email" id="email" name="email" required
+                                          class="w-full gradient-input p-3 rounded-lg focus:ring-0 placeholder-gray-100"
+                                          placeholder="you@example.com">
+                              </div>
+
+                              <!-- Address -->
+                              <div>
+                                    <label for="address" class="block font-bold text-gray-700 mb-2">Full Address
+                                          *</label>
+                                    <input type="text" id="address" name="address" required
+                                          class="w-full gradient-input p-3 rounded-lg focus:ring-0 placeholder-gray-100"
+                                          placeholder="123 Main St, City, Country">
+                              </div>
+
+                              <!-- Program Selection -->
+                              <div>
+                                    <label for="program" class="block font-bold text-gray-700 mb-2">Select Program
+                                          *</label>
+                                    <select id="program" name="program" required
+                                          class="w-full p-3 rounded-lg gradient-input focus:ring-0">
+                                          <option value="">Select Program</option>
+                                          <option value="program1">Program 1</option>
+                                          <option value="program2">Program 2</option>
+                                    </select>
+                              </div>
+
+                              <!-- Upload Documents -->
+                              <div class="space-y-4">
+                                    <div class="flex items-center ">
+                                          <label class="block font-bold text-gray-700 mb-2 pr-4">Upload ID Document
+                                                *</label>
+                                          <label class="custom-file-upload w-full">
+                                                <input type="file" name="identity_document" required>
+                                                <span class="file-upload-text">No file chosen</span>
+                                          </label>
+                                    </div>
+
+
+                                    <div class="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
+                                          <div class="w-full md:w-1/2 flex items-center">
+                                                <label class="block font-bold text-gray-700 mb-2">Upload Degree Document
+                                                      *</label>
+                                                <label class="custom-file-upload w-full">
+                                                      <input type="file" name="degree_document" required>
+                                                      <span class="file-upload-text">No file chosen</span>
+                                                </label>
+                                          </div>
+                                          <div class="w-full md:w-1/2 flex  items-center">
+                                                <label class="block font-bold text-gray-700 mb-2">Upload Additional
+                                                      Document
+                                                      *</label>
+                                                <label class="custom-file-upload w-full">
+                                                      <input type="file" name="additional_document" required>
+                                                      <span class="file-upload-text">No file chosen</span>
+                                                </label>
+                                          </div>
+                                    </div>
+
+                              </div>
+
+                              <!-- Submit Button -->
+                              <div class="text-center">
+                                    <button type="submit"
+                                          class="w-full p-3 bg-green-600 text-white rounded-lg gradient-button">Register</button>
+                              </div>
+                        </form>
+                  </div>
+            </div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="bg-green-900 text-white p-4">
+            <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+                  <div class="flex items-center mb-4 md:mb-0">
+                        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo"
+                              class="footer-logo mr-3">
+                        <p class="text-center md:text-left">We provide quality Islamic education programs to empower
+                              individuals and communities.</p>
+                  </div>
+                  <div class="text-center md:text-right">
+                        <p>&copy; 2024 Faculty Of Islamic Sciences Ltd. All rights reserved.</p>
+                  </div>
+            </div>
+      </footer>
+
+</body>
+
+</html>

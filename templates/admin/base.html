@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>لوحة تحكم</title>
+      <!-- Font Awesome for Icons -->
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+      <!-- Google Fonts: Cairo -->
+      <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+      <!-- Tailwind CSS -->
+      <script src="https://cdn.tailwindcss.com"></script>
+      <!-- Alpine.js for Interactivity -->
+      <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.5.2/dist/cdn.min.js" defer></script>
+
+      <script src="https://cdn.tailwindcss.com"></script>
+      <link rel="stylesheet" href="{{ url_for('static', filename='style/index.css') }}">
+      <style>
+            body {
+                  font-family: 'Cairo', sans-serif;
+                  margin: 0;
+                  padding: 0;
+                  box-sizing: border-box;
+            }
+
+            input,
+            select,
+            textarea {
+                  border: 1px solid #afafaf;
+            }
+      </style>
+</head>
+
+<body class=" bg-gray-100  h-[100vh]">
+      <div class="flex flex-col w-full h-full relative ">
+            <div class="nav-bar bg-white h-16 w-full  px-8 flex justify-between items-center z-20">
+                  <div class="w-[300px] main-logo lg:flex gap-2 hidden ">
+                        <div class="w-12 h-12"><img src="{{ 
+                              url_for('static', filename='images/logo.png')
+                              }}" alt=""></div>
+
+                  </div>
+
+                  <div
+                        class="notify w-8 h-8 bg-gray flex justify-center items-center rounded-full cursor-pointer relative">
+                        <div
+                              class="bg-red-500 rounded-full w-5 h-5 absolute -top-3 -right-3 flex justify-center items-center text-white text-xs">
+                              2</div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                              fill="none">
+                              <path d="M21.1202 15.5559C20.3065 14.1562 19.8743 12.1472 19.8743 9.75C19.8743 7.66142 19.0446 5.65838 17.5678 4.18153C16.0909 2.70469 14.0879 1.875 11.9993 1.875C9.91071 1.875 7.90768 2.70469 6.43083 4.18153C4.95398 5.65838 4.12429 7.66142 4.12429 9.75C4.12429 12.1481 3.69398 14.1562 2.88023 15.5559C2.71418 15.8414 2.62616 16.1656 2.62501 16.4958C2.62386 16.8261 2.70962 17.1509 2.87367 17.4375C3.03668 17.7243 3.27329 17.9624 3.55906 18.1272C3.84484 18.292 4.16942 18.3775 4.49929 18.375H7.89117C7.98419 19.4003 8.45724 20.3537 9.21738 21.048C9.97752 21.7423 10.9698 22.1273 11.9993 22.1273C13.0288 22.1273 14.0211 21.7423 14.7812 21.048C15.5413 20.3537 16.0144 19.4003 16.1074 18.375H19.4993C19.8287 18.377 20.1527 18.2913 20.4379 18.1265C20.7232 17.9617 20.9593 17.7239 21.1221 17.4375C21.2869 17.1513 21.3734 16.8267 21.3731 16.4965C21.3728 16.1662 21.2856 15.8418 21.1202 15.5559ZM11.9993 19.875C11.567 19.8751 11.148 19.7258 10.8132 19.4525C10.4784 19.1791 10.2482 18.7985 10.1618 18.375H13.8368C13.7503 18.7985 13.5202 19.1791 13.1854 19.4525C12.8505 19.7258 12.4315 19.8751 11.9993 19.875ZM5.12367 16.125C5.95336 14.4375 6.37429 12.2944 6.37429 9.75C6.37429 8.25816 6.96693 6.82742 8.02182 5.77252C9.07671 4.71763 10.5075 4.125 11.9993 4.125C13.4911 4.125 14.9219 4.71763 15.9768 5.77252C17.0317 6.82742 17.6243 8.25816 17.6243 9.75C17.6243 12.2934 18.0443 14.4375 18.874 16.125H5.12367Z"
+                                    fill="#58647C"></path>
+                        </svg>
+                  </div>
+            </div>
+
+            <div class="flex  w-full overflow-x-hidden     med-outlet">
+                  <div class="hidden w-[300px] lg:flex sticky top-0 right-0">
+                        <div class=" flex flex-col justify-between bg-lightGray h-full lg:w-full calc-height ">
+                              <div class=" flex flex-col ">
+
+                                    <a class=" flex gap-7 py-3 items-center px-6 hover:bg-gray cursor-pointer"
+                                          href="/admin/">
+                                          <i class="fas fa-home text-2xl text-darkGray"></i>
+                                          <h2 class="text-xl font-medium text-darkGray">الرئيسية</h2>
+                                    </a>
+                                    <!-- /teacher/courses/1 -->
+                                    <a class=" flex gap-7 py-3 items-center px-6 hover:bg-gray cursor-pointer" href="#">
+                                          <i class="fas fa-book text-2xl text-darkGray"></i>
+                                          <h2 class="text-xl font-medium text-darkGray">الدورات</h2>
+
+                                    </a>
+                                    <!-- /teacher/midterms/1 -->
+                                    <a class=" flex gap-7 py-3 items-center px-6 hover:bg-gray cursor-pointer" href="#">
+                                          <i class="fas fa-pen text-2xl text-darkGray"></i>
+                                          <h2 class="text-xl font-medium text-darkGray">الامتحانات</h2>
+
+                                    </a>
+                                    <!-- /teacher/videos -->
+                                    <a class=" flex gap-7 py-3 items-center px-6 hover:bg-gray cursor-pointer" href="#">
+                                          <i class="fas fa-video text-2xl text-darkGray"></i>
+                                          <h2 class="text-xl font-medium text-darkGray">الفيديوهات</h2>
+
+                                    </a>
+                                    <!-- ملفات -->
+                                    <a class=" flex gap-7 py-3 items-center px-6 hover:bg-gray cursor-pointer" href="#">
+                                          <i class="fas fa-file text-2xl text-darkGray"></i>
+                                          <h2 class="text-xl font-medium text-darkGray">الملفات</h2>
+                                    </a>
+                                    <!-- /teacher/profile -->
+                                    <a class=" flex gap-7 py-3 items-center px-6 hover:bg-gray cursor-pointer" href="#">
+                                          <i class="fas fa-user text-2xl text-darkGray"></i>
+                                          <h2 class="text-xl font-medium text-darkGray">الملف الشخصي</h2>
+                                    </a>
+
+                              </div>
+                              <div class="flex flex-col pb-4 ">
+                                    <div onclick="window.location.href = '/logout';"
+                                          class=" flex items-center py-3 px-6 gap-7 hover:bg-gray cursor-pointer border-t-2 border-gray  ">
+                                          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                viewBox="0 0 32 32" fill="none">
+                                                <path d="M16.0006 20L20.0006 16M20.0006 16L16.0006 12M20.0006 16H5.33398M5.33398 9.66399V9.59999C5.33398 8.10666 5.33398 7.35999 5.62465 6.78933C5.88065 6.28666 6.28732 5.87999 6.78998 5.62399C7.36065 5.33333 8.10732 5.33333 9.60065 5.33333H22.4006C23.894 5.33333 24.6406 5.33333 25.21 5.62399C25.7126 5.87999 26.1206 6.28666 26.3766 6.78933C26.6673 7.35866 26.6673 8.10533 26.6673 9.59599V22.4053C26.6673 23.896 26.6673 24.6413 26.3766 25.2107C26.1205 25.7125 25.7121 26.1204 25.21 26.376C24.6406 26.6667 23.8953 26.6667 22.4046 26.6667H9.59665C8.10598 26.6667 7.35932 26.6667 6.78998 26.376C6.28824 26.1203 5.88031 25.7124 5.62465 25.2107C5.33398 24.64 5.33398 23.8933 5.33398 22.4V22.3333"
+                                                      stroke="#58647C" stroke-width="2" stroke-linecap="round"
+                                                      stroke-linejoin="round"></path>
+                                          </svg>
+                                          <h1 class="text-xl font-medium text-darkGray">خروج</h1>
+                                    </div>
+                              </div>
+                        </div>
+                  </div>
+
+                  <div class="contant w-full h-full bg-gray-100 m-3">
+                        {% with messages = get_flashed_messages(with_categories=true) %} {% if messages %}
+                        <div class="mb-4">
+                              {% for category, message in messages %}
+                              <div class="bg-{{ 'red' if category == 'danger' else 'green' }}-100 border border-{{ 'red' if category == 'danger' else 'green' }}-400 text-{{ 'red' if category == 'danger' else 'green' }}-700 px-4 py-3 rounded relative"
+                                    role="alert">
+                                    {{ message }}
+                              </div>
+                              {% endfor %}
+                        </div>
+                        {% endif %} {% endwith %}
+
+                        <!-- Page Content -->
+                        {% block content %}{% endblock %}
+                  </div>
+                  <div class="md:hidden fixed bottom-0 right-0 w-full bg-white mobile-menu">
+                        <div class="flex justify-between items-center   ">
+
+
+                              <a aria-current="page"
+                                    class="flex flex-col cursor-pointer justify-center items-center w-1/5 py-3 px-3 active"
+                                    href="/admin/">
+
+                                    <i class="fas fa-home text-2xl text-darkGray"></i>
+                                    <p class="font-medium text-[10px] text-center">الرئيسية</p>
+                              </a>
+                              <a aria-current="page"
+                                    class="flex flex-col cursor-pointer justify-center items-center w-1/5 py-3 px-3 active"
+                                    href="#">
+
+                                    <i class="fas fa-book text-2xl text-darkGray"></i>
+                                    <p class="font-medium text-[10px] text-center">الدورات</p>
+                              </a>
+                              <a aria-current="page"
+                                    class="flex flex-col cursor-pointer justify-center items-center w-1/5 py-3 px-3 active"
+                                    href="#">
+
+                                    <i class="fas fa-pen cil-alt text-2xl text-darkGray"></i>
+                                    <p class="font-medium text-[10px] text-center">الامتحانات</p>
+                              </a>
+                              <a aria-current="page"
+                                    class="flex flex-col cursor-pointer justify-center items-center w-1/5 py-3 px-3 active"
+                                    href="#">
+
+                                    <i class="fas fa-video text-2xl text-darkGray"></i>
+                                    <p class="font-medium text-[10px] text-center">الفيديوهات</p>
+                              </a>
+                              <a aria-current="page"
+                                    class="flex flex-col cursor-pointer justify-center items-center w-1/5 py-3 px-3 active"
+                                    href="#">
+                                    <i class="fas fa-file text-2xl text-darkGray"></i>
+                                    <p class="font-medium text-[10px] text-center">الملفات</p>
+                              </a>
+                              <a aria-current="page"
+                                    class="flex flex-col cursor-pointer justify-center items-center w-1/5 py-3 px-3 active"
+                                    href="#">
+
+                                    <i class="fas fa-user text-2xl text-darkGray"></i>
+                                    <p class="font-medium text-[10px] text-center">الملف الشخصي</p>
+                              </a>
+
+                        </div>
+                  </div>
+            </div>
+</body>
+
+</html>
